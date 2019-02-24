@@ -1,0 +1,38 @@
+{% extends "recruiter/base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+    {% if recruiter %}
+        <div class="jumbotron container text-cneter">
+            {% if messages %}
+                {% for message in messages %}
+                    <span class="alert  alert-success">{{ message }}</span>
+                {% endfor %}
+            {% endif %}
+            <h3>{{ recruiter.company_name }}</h3>
+
+            <table class="table table-stripped table-hover">
+                <tr>
+                    <td>No.</td>
+                    <td>Job</td>
+                    <td>Posted by</td>
+                    <td>On</td>
+                    <td>message</td>
+                </tr>
+                {% for proposal in proposals %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="{% url "recruiter:proposal_details" pk=proposal.id %}"> {{ proposal.job.headline }}</a></td>
+                        <td>{{ proposal.posted_by }}</td>
+{#                        <td><a href="{% url "recruiter:view_candidate" candidate_id=proposal.canidate.id %}">{{ proposal.candidate }}</a></td>#}
+                        <td>{{ proposal.on }}</td>
+                        <td>{{ proposal.message }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <hr><br>
+        </div>
+    {% endif %}
+{% endblock %}
