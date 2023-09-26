@@ -7,5 +7,3 @@ It has two sections :
 2) **For Candidates** : This is for candidates/teachers wants to find a job as a teacher.
 
 This website includes authenticaion, search pages with filters, wishlists, apply process, subscriptions and other basic functionalities a job board has.
-
-created on 18th feb 2019
